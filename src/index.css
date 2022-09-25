@@ -3,6 +3,8 @@ body {
   padding: 0;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
+  background-image: url("https://plexxis.com/wp-content/themes/plexxis/assets/img/home/home-page-first-stripe-background.png");
+  background-color: #e9edf4;
 }
 
 h1 {

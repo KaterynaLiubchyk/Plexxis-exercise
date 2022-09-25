@@ -1,7 +1,9 @@
 import React from 'react';
-import EmployeesList from './components/employeesList';
+import Title from './components/Title/title'
+import EmployeesList from './components/EmployeesList/employeesList';
 // const employees = require('../server/data/employees.json');
 import employees from './employees.json';
+import './index.css';
 
 // class App extends React.Component {
 //   state = {
@@ -46,7 +48,7 @@ import employees from './employees.json';
 const App = () => {
   return (
     <div>
-      <h1>Main component</h1>
+      <Title/>
       <EmployeesList employees={employees}/>
     </div>
   )

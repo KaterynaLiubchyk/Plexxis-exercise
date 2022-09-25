@@ -1,0 +1,15 @@
+.employeesList {
+  max-width: 2400px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: -10px auto;
+}
+
+.EmployeeList__item {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 10px;
+}
