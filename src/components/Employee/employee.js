@@ -42,7 +42,7 @@ class Employee extends React.Component {
                 <p>{this.state.employee.code} - {this.state.employee.profession}</p>
                 <p>{this.state.employee.city} ({this.state.employee.branch})</p>
                 <p>{this.state.employee.assigned ? 'Assigned' : 'Not assigned'}</p>
-                <Controls onUpdate={this.updateEmployee} onDelete={this.deleteEmployee}/>
+                <Controls onUpdate={this.updateEmployee} onDelete={this.deleteEmployee} employee={this.state.employee}/>
             </div>
         )
     }

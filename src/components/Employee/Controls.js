@@ -1,9 +1,12 @@
 import React from "react";
+import UpdateUserModal from '../Modals/UpdateUserModal'
+import DeleteUserModal from '../Modals/DeleteUserModal'
 
-const Controls = ({onUpdate, onDelete}) => (
+
+const Controls = ({onUpdate, onDelete, employee}) => (
     <div>
-        <button onClick={onUpdate}>Update</button>
-        <button onClick={onDelete}>Delete</button>
+        <UpdateUserModal onUpdate={onUpdate} employee={employee}/>
+        <DeleteUserModal onDelete={onDelete} employee={employee}/>
     </div> 
 )
 
