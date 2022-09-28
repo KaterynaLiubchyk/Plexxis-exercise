@@ -1,57 +1,55 @@
 import React from 'react';
 import Title from './components/Title/title'
-import EmployeesList from './components/EmployeesList/employeesList';
-// const employees = require('../server/data/employees.json');
-import employees from './employees.json';
+import EmployeesList from './components/EmployeesList/EmployeesList';
+import AddEmployeeModal from './components/Modals/AddEmployeeModal'
+import employeesApi from './api/employees-api'
 import './index.css';
 
-// class App extends React.Component {
-//   state = {
-//     employees: []
-//   }
-  
-//   componentWillMount = () => {
-//     fetch('http://localhost:8080/api/employees')
-//       .then(response => response.json())
-//       .then(employees => this.setState({ employees }))
-//   }
+class App extends React.Component {
 
-//   render() {
-//     const {
-//       employees
-//     } = this.state;
+  state = {
+    employees: [],
+  }
 
-//     console.log(this.state);
+  componentDidMount() {
+    employeesApi
+      .getEmployees()
+      .then(employees => {
+        this.setState({ employees })
+      })
+      .catch(error => console.log(error));
+  }
 
-//     return (
-//       <div className="App">
-//         <h1>Plexxis Employees</h1>
-//         {
-//           employees.map(employee => (
-//             <div key={employee.id}>
-//               {
-//                 Object.keys(employee).map(key => 
-//                   <span key={key}>
-//                     { key }:
-//                     { employee[key] } 
-//                   </span>
-//                 )
-//               }
-//             </div>
-//           ))
-//         }
-//       </div>
-//     );
-//   }
-// }
+  deleteEmployee = id => {
+    employeesApi
+      .deleteEmployee(id)
+      .then(() => {this.setState(({ employees }) => ({
+          employees: employees.filter((employee) => employee.id !== id),
+        }));
+      });
+  }
 
-const App = () => {
-  return (
-    <div>
-      <Title/>
-      <EmployeesList employees={employees}/>
-    </div>
-  )
+  addEmployee = data => {
+    const newEmployee = {
+      id: Date.now(),
+      ...data
+    }
+    console.log('newEmployee===', newEmployee)
+    employeesApi
+      .addEmployee(newEmployee)
+      .then(() => {this.setState(({ employees }) => ({ employees: [...employees, newEmployee] }))
+    })
+  }
+
+  render() {
+    return (
+      <div className='mainContainer'>
+        <Title/>
+        <AddEmployeeModal onAddEmployee={this.addEmployee}/>
+        <EmployeesList employees={this.state.employees} onDeleteEmployee={this.deleteEmployee}/>
+      </div>
+    )
+  }
 }
 
 export default App;

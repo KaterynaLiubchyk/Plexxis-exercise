@@ -1,16 +1,18 @@
 {
   "name": "plex-employees",
   "version": "0.1.0",
-  "license": "None provided",
+  "license": "UNLICENSED",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.6",
+    "axios": "^0.27.2",
     "concurrently": "^3.6.0",
-    "cors": "^2.8.4",
+    "cors": "^2.8.5",
     "emotion": "^9.1.3",
-    "express": "^4.16.3",
+    "express": "^4.18.1",
+    "file-system": "^2.2.2",
     "modern-normalize": "^1.1.0",
     "nodemon": "^1.17.5",
     "react": "^17.0.0",
@@ -31,5 +33,16 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "Create a simple but __impressive__ (looks good, works well, has intuitive design, etc.) CRUD application that can do the following:",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaterynaLiubchyk/Plexxis-exercise.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/KaterynaLiubchyk/Plexxis-exercise/issues"
+  },
+  "homepage": "https://github.com/KaterynaLiubchyk/Plexxis-exercise#readme"
 }

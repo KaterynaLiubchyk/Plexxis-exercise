@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function DeleteUserModal({onUpdate, onDelete}) {
+export default function DeleteEmployeeModal({employee, onDeleteEmployee}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -16,11 +16,6 @@ export default function DeleteUserModal({onUpdate, onDelete}) {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const onDeleteClick = () => {
-    onDelete()
-    setOpen(false);
-  }
 
   return (
     <div>
@@ -47,7 +42,7 @@ export default function DeleteUserModal({onUpdate, onDelete}) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={onDeleteClick}>Delete</Button>
+          <Button onClick={() => onDeleteEmployee(employee.id)}>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>
